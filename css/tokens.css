@@ -1,0 +1,223 @@
+/* =============================================================================
+   DESIGN TOKENS
+   Single source of truth for all visual decisions.
+   All values below are placeholders — fill in based on docs/design-direction.md.
+   Do not hard-code any of these values elsewhere in the codebase.
+   ============================================================================= */
+
+
+/* -----------------------------------------------------------------------------
+   COLOR — RAW PALETTE
+   Define the full color palette here as named swatches.
+   Use descriptive names (what the color IS), not roles (what it DOES).
+   Roles are assigned in the semantic layer below.
+   Aim for 2–3 hues with 4–6 shades each, plus neutrals.
+   ----------------------------------------------------------------------------- */
+
+:root {
+   /* First, add colors with color names, e.g., --blue: #0D6FBA; then use the color */
+  /* Neutrals */
+  --color-neutral-200: ;
+  --color-neutral-400: ;
+  --color-neutral-800: ;
+
+  /* Primary hue */
+  --color-primary-200: ;
+  --color-primary-400: ;
+  --color-primary-700: ;
+
+  /* Secondar hue */
+  --color-secondary-200: ;
+  --color-secondary-400: ;
+  --color-secondary-700: ;
+
+  /* Accent hue (optional second hue) */
+  --color-accent-200: ;
+  --color-accent-400: ;
+  --color-accent-700: ;
+}
+
+
+/* -----------------------------------------------------------------------------
+   COLOR — SEMANTIC LAYER
+   Map raw palette values to roles.
+   This is what templates and component CSS reference — never the raw values above.
+   ----------------------------------------------------------------------------- */
+
+:root {
+  /* Surface */
+  --color-bg:           ;   /* page background */
+  --color-bg-subtle:    ;   /* slightly off-background (cards, code blocks, etc.) */
+  --color-bg-emphasis:  ;   /* inverted surface (dark band, hero, etc.) */
+
+  /* Text */
+  --color-text:         ;   /* body copy */
+  --color-text-muted:   ;   /* secondary / captions */
+  --color-text-on-emphasis: ; /* text on --color-bg-emphasis */
+
+  /* Border */
+  --color-border:       ;   /* default rule / divider */
+  --color-border-subtle:;   /* very light hairline */
+
+  /* Interactive */
+  --color-link:         ;
+  --color-link-hover:   ;
+
+  /* Brand accent */
+  --color-accent:       ;   /* buttons, highlights, active states */
+  --color-accent-hover: ;
+  --color-on-accent:    ;   /* text/icons on top of --color-accent */
+}
+
+
+/* -----------------------------------------------------------------------------
+   TYPOGRAPHY — FAMILIES
+   List fonts in priority order. Include fallback stacks.
+   Load fonts externally (Google Fonts, self-hosted, system) — not here.
+   ----------------------------------------------------------------------------- */
+
+:root {
+  --font-sans:  , system-ui, sans-serif;
+  --font-serif: , Georgia, serif;        /* remove if unused */
+  --font-mono:  , monospace;             /* remove if unused */
+
+  /* Default body font */
+  --font-base: var(--font-sans);
+}
+
+
+/* -----------------------------------------------------------------------------
+   TYPOGRAPHY — SCALE
+   Change the --scale to make the type scale more and less dramatic.
+   ----------------------------------------------------------------------------- */
+
+:root {
+  --scale: 1.1; /* change this as needed */
+
+  /* create the typographic scale! */
+  --xx-small: calc(var(--size--medium) * pow(var(--scale), -1));
+  --x-small: calc(var(--size--medium) * pow(var(--scale), -.5));
+  --small: calc(var(--size--medium) * pow(var(--scale), -.25));
+  --large: calc(var(--size--medium) * pow(var(--scale), 1));
+  --x-large: calc(var(--size--medium) * pow(var(--scale), 2));
+  --xx-large: calc(var(--size--medium) * pow(var(--scale), 3));
+  --xxx-large: calc(var(--size--medium) * pow(var(--scale), 4));
+  --xxxx-large: calc(var(--size--medium) * pow(var(--scale), 5));
+  --xxxxx-large: calc(var(--size--medium) * pow(var(--scale), 6));
+  --xxxxxx-large: calc(var(--size--medium) * pow(var(--scale), 7));
+
+}
+
+
+/* -----------------------------------------------------------------------------
+   TYPOGRAPHY — LINE HEIGHT & LETTER SPACING
+   ----------------------------------------------------------------------------- */
+
+:root {
+  --leading-tight:  ;   /* headings     ~1.1–1.2 */
+  --leading-snug:   ;   /* subheadings  ~1.3–1.4 */
+  --leading-normal: ;   /* body         ~1.5–1.6 */
+  --leading-loose:  ;   /* long-form    ~1.7–1.8 */
+
+  /* letter spacing may all end up being 0 */
+  --tracking-tight:  ;  /* headings / display  ~ -0.02em */
+  --tracking-normal: ;  /* body                  0       */
+  --tracking-wide:   ;  /* caps / labels        ~0.05em  */
+}
+
+
+/* -----------------------------------------------------------------------------
+   TYPOGRAPHY — WEIGHT
+   Only include weights that are actually loaded/available.
+   ----------------------------------------------------------------------------- */
+
+:root {
+  --weight-regular: 400;
+  --weight-medium:  500;   /* remove if not loaded */
+  --weight-semibold: 600;  /* remove if not loaded */
+  --weight-bold:    700;
+}
+
+
+/* -----------------------------------------------------------------------------
+   SPACING
+   Single scale used for padding, margin, gap, and layout rhythm.
+   ----------------------------------------------------------------------------- */
+
+:root {
+}
+
+
+/* -----------------------------------------------------------------------------
+   LAYOUT
+   Max widths, container sizes, and common breakpoints.
+   ----------------------------------------------------------------------------- */
+
+:root {
+  --container-sm:   ;   /* narrow reading column  ~640px  */
+  --container-md:   ;   /* default content width  ~768px  */
+  --container-lg:   ;   /* wide layout            ~1024px */
+  --container-xl:   ;   /* full bleed / max-width ~1280px */
+
+  /* Sidebar / aside width if used */
+  --sidebar-width:  ;
+}
+
+
+/* -----------------------------------------------------------------------------
+   BORDER & RADIUS
+   ----------------------------------------------------------------------------- */
+
+:root {
+  --radius-sm:   ;   /* subtle rounding                */
+  --radius-md:   ;   /* buttons, cards                 */
+  --radius-lg:   ;   /* larger cards, panels           */
+  --radius-full: 9999px;  /* pills, tags — keep as-is  */
+
+  --border-width:        1px;
+  --border-width-thick:  2px;
+}
+
+
+/* -----------------------------------------------------------------------------
+   SHADOW
+   Optional — remove if the design direction calls for flat / no shadow.
+   ----------------------------------------------------------------------------- */
+
+:root {
+  --shadow-sm: ;
+  --shadow-md: ;
+  --shadow-lg: ;
+}
+
+
+/* -----------------------------------------------------------------------------
+   MOTION
+   Keep transitions consistent. Prefer shorter (1200ms) durations for interactive
+   elements (hover, focus) and longer (1600ms) for layout changes.
+   ----------------------------------------------------------------------------- */
+
+:root {
+   --ease-default: cubic-bezier(0.07, 1.00, 0.00, 1.00);
+   --ease-slow: cubic-bezier(0.18, 1.00, 0.12, 1.00);
+
+  --duration-normal: 1200ms;
+  --duration-slow:   1600ms;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Z-INDEX SCALE
+   Explicit stack order prevents accidental layering conflicts.
+   ----------------------------------------------------------------------------- */
+
+:root {
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+}

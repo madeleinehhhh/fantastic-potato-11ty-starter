@@ -1,0 +1,9 @@
+{
+  "name": "Site Name",
+  "url": "https://example.com",
+  "author": {
+    "name": "Madeleine Herritage",
+    "url": "https://madeleine.dev"
+  },
+  "description": "Site description"
+}
